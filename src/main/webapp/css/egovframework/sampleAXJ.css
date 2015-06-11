@@ -1,0 +1,5 @@
+.sub_contents ul.sub_search {display:inline-block; list-style: none;}
+.sub_contents ul.sub_search li {float:left;height:30px;vertical-align:middle;padding-left: 5px;}
+
+ul.sub_buttons {display:inline-block; list-style: none;}
+ul.sub_buttons li {float:right;height:30px;vertical-align:middle;padding-left: 5px;}

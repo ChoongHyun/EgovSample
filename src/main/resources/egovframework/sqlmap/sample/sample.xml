@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap>
+    <typeAlias  alias="searchVO" type="egovframework.sample.service.SampleDefaultVO"/>
+    <typeAlias  alias="sampleVO" type="egovframework.sample.service.SampleVO"/>
+
+    <!--목록조회-->
+	<select id="sampleDAO.selectSampleList" parameterClass="searchVO" resultClass="sampleVO">
+        SELECT
+            ID, NAME, DEPARTMENT, GENDER, REGUSER, INTRODUCE
+        FROM
+            SAMPLE
+        WHERE
+            1=1
+            <isEqual prepend="AND" property="searchCondition" compareValue="id">
+                ID = #searchKeyword#
+            </isEqual>
+            <isEqual prepend="AND" property="searchCondition" compareValue="name">
+                NAME LIKE '%' || #searchKeyword# || '%'
+            </isEqual>
+            ORDER BY
+                ID DESC
+            LIMIT
+                #recordCountPerPage# OFFSET #firstIndex#
+	</select>
+
+    <!--목록 카운트-->
+	<select id="sampleDAO.selectSampleListTotCnt" parameterClass="searchVO" resultClass="int">
+			SELECT
+                COUNT(*) totcnt
+			FROM
+                SAMPLE
+			WHERE
+                1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="id">
+				ID = #searchKeyword#
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="name">
+				NAME LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+	</select>
+	
+	<!-- 목록 조회(전체) -->
+	<select id="sampleDAO.axisSelectSampleList" parameterClass="searchVO" resultClass="HashMap">
+        SELECT
+            ID, NAME, DEPARTMENT, GENDER, REGUSER, INTRODUCE
+        FROM
+            SAMPLE
+        WHERE
+            1=1
+            <isEqual prepend="AND" property="searchCondition" compareValue="id">
+                ID = #searchKeyword#
+            </isEqual>
+            <isEqual prepend="AND" property="searchCondition" compareValue="name">
+                NAME LIKE '%' || #searchKeyword# || '%'
+            </isEqual>
+            ORDER BY
+                ID DESC
+	</select>
+
+    <!--신규 등록-->
+    <insert id="sampleDAO.insertSample">
+        <selectKey keyProperty="id" type="pre" resultClass="Integer">
+            SELECT MAX(ID)+1 FROM SAMPLE
+        </selectKey>
+			INSERT INTO SAMPLE
+                  ( ID, NAME, DEPARTMENT, GENDER, REGUSER, INTRODUCE )
+              VALUES
+                  ( #id#, #name#, #department#, #gender#, 'manager', #introduce#)
+    </insert>
+
+    <!--상세(1건) 조회-->
+    <select id="sampleDAO.selectSample" parameterClass="sampleVO" resultClass="sampleVO">
+        SELECT
+            ID, NAME, DEPARTMENT, GENDER, REGUSER, INTRODUCE
+        FROM
+            SAMPLE
+        WHERE
+            ID=#id#
+    </select>
+
+    <!--수정-->
+    <update id="sampleDAO.updateSample" parameterClass="sampleVO">
+        UPDATE
+            SAMPLE
+        SET
+            NAME=#name#,
+            DEPARTMENT=#department#,
+            GENDER=#gender#,
+            INTRODUCE=#introduce#
+        WHERE
+            ID=#id#
+    </update>
+
+    <!-- 글삭제 -->
+    <delete id="sampleDAO.deleteSample" parameterClass="sampleVO">
+        DELETE FROM
+            SAMPLE
+        WHERE
+            ID=#id#
+    </delete>
+</sqlMap>
