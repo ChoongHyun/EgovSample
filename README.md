@@ -1,10 +1,4 @@
 # EgovSample
-전자정부프레임워크 3.1
-
-JDK : 1.6.0_45
-WAS : Tomcat 7.0
-
-# EgovSample
 ### 전자정부 프레임워크 간소화
 > 일반게시판 및 axisJ 이용게시판 샘플이 구현 되어 있습니다.
 
