@@ -11,10 +11,14 @@
 <div align="center">
 <img src="http://cdn4.wpbeginner.com/wp-content/uploads/2013/12/error.jpg" />
 <br/>
-    <h1>아래 메세지를 잘 보고 분석하세요</h1>
+<b>
+    <h1>서버 내부 오류</h1>
+    <h3>웹 서버가 요청사항을 수행할 수 없을 경우에 발생함</h3>
+    <h3>아래 메세지를 잘 보고 분석하세요</h3>
     <b>exception</b> : <c:out value="${requestScope['javax.servlet.error.exception']}"/><br/>
     <b>exception type</b> : <c:out value="${requestScope['javax.servlet.error.exception_type']}"/><br/>
     <b>message</b> : <c:out value="${requestScope['javax.servlet.error.message']}"/>
+</b>
 </div>
 <!--
     시스템오류

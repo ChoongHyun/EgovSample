@@ -9,12 +9,12 @@
 <body>
 <br/>
 <div align="center">
-<img src="http://cdn4.wpbeginner.com/wp-content/uploads/2013/12/error.jpg" />
+<img src="http://netdna.webdesignerdepot.com/uploads/2014/07/featured34.jpg" />
 <br/>
-    <h1>아래 메세지를 잘 보고 분석하세요</h1>
-    <b>exception</b> : <c:out value="${requestScope['javax.servlet.error.exception']}"/><br/>
-    <b>exception type</b> : <c:out value="${requestScope['javax.servlet.error.exception_type']}"/><br/>
-    <b>message</b> : <c:out value="${requestScope['javax.servlet.error.message']}"/>
+<b>
+    <h1>404Error(Bad Request)</h1>
+    <h3>URL을 다시 잘 보고 주소가 올바로 입력되었는지를 확인하세요.</h3>
+</b>
 </div>
 <!--
     시스템오류
