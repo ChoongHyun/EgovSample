@@ -1,0 +1,11 @@
+.mytable { border-collapse:collapse; width: 500px }
+.mytable th, .mytable td { border:1px solid black; }
+.pt10 {padding-top: 10px;}
+.center{text-align: center}
+.left{text-align: left}
+.right{text-align: right}
+.readonly{background-color: #808080; }
+.W500 {width: 500px;}
+.floatR {float: right}
+.pl5 {padding-left: 5px;}
+.tac {text-align: center;}

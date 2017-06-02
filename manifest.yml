@@ -1,0 +1,6 @@
+---
+applications: 
+- name: sample
+  memory: 1024M
+  buildpack: Egov
+  path: target/sample-3.1.0.war
