@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+
+    <!-- 어드바이스 빈 생성 -->
+    <bean id="printAop" class="egovframework.sample.aop.PrintAop" />
+    <aop:config>
+        <aop:aspect ref="printAop">
+            <aop:pointcut id="testExp" expression="execution(* egovframework.sample..impl.*Impl.*(..))" />
+            <aop:before method="printBeforeAop" pointcut-ref="testExp"/>
+            <aop:after method="printAfterAop" pointcut-ref="testExp"/>
+        </aop:aspect>
+    </aop:config>
+</beans>
